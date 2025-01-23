@@ -9887,7 +9887,30 @@ campaignTrail_temp.running_mate_image_url = "https://i.imgur.com/VoUqCSG.png";
 campaignTrail_temp.candidate_last_name = "La Follette Jr.";
 campaignTrail_temp.running_mate_last_name = "For Senate";
 
+campaignTrail_temp.election_json[0].fields.advisor_url = "https://i.imgur.com/4mrmqHt.png";
 
+campaignTrail_temp.cyoa = true;
+
+function getQuestionNumberFromPk(pk) {
+    return campaignTrail_temp.questions_json.map(q=>q.pk).indexOf(pk)-1;
+}
+
+cyoAdventure = function (a) {
+    ans = campaignTrail_temp.player_answers[campaignTrail_temp.player_answers.length-1];
+
+   if(ans == 16656){
+        //Merged Leave CYOA
+campaignTrail_temp.questions_json[24] = {
+                "model": "campaign_trail.question",
+                "pk": 16958,
+                "fields": {
+                  "priority": 1,
+                  "description": "It is August 8th, and you are being interviewed by the Racine Journal-Times when you are asked about the gubernatorial primary. Specifically, the reporter asks who you will vote for in just a few days from now. How do you respond?",
+                  "likelihood": 1
+                }
+              }
+              }
+}
 
 campaignTrail_temp.jet_data = [{
     "mapping_enabled": true,
@@ -9916,4 +9939,132 @@ campaignTrail_temp.jet_data = [{
     "cyoa_data": {}
 }
 ]
+
+// constructs endings based on header and pages
+construct = (a = 1) => {
+	
+e.page = e.page + a < e.pages.length ? e.page + a : 0
+let html = e.header;
+html += e.pages[e.page] + "<br>";
+if (e.page > 0) {
+
+html += `<button onclick='endingConstructor(a = -1)'>Back</button>`
+}
+if (e.page < e.pages.length - 1) {
+
+html += `<button onclick='endingConstructor(a = 1)'>Next</button>`
+}
+
+for (i in e.executable) {
+if (e.executable[i][0] == e.page) {
+    e.executable[i][1]();
+	
+}
+}
+
+if (e.image == true)
+setTimeout(()=>{
+  candImg = $(".person_image")[0]
+  if (candImg) {
+    candImg.remove()
+	console.log("TRYING");
+    $("#final_results_description")[0].style = `
+      text-align: left;
+      width: 70%;
+	  height:71%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+	  overflow: auto;
+      color: #000000
+    `
+	 console.log("RESULTS UPDATED");
+  }
+}, 10)
+else if (e.image)
+setTimeout(()=>{
+  candImg = $(".person_image")[0];
+  if (candImg) {
+    candImg.src = e.image;
+	console.log("TRYING");
+    $("#final_results_description")[0].style = `
+      text-align: left;
+      width: 70%;
+	  height:71%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+	  overflow: auto;
+      color: #000000
+    `
+	 console.log("RESULTS UPDATED");
+  }		
+}, 10)
+
+return html;
+}
+
+endingConstructor = (a = 1) => {
+$("#final_results_description")[0].innerHTML = construct(a);
+}
+
+// ENDINGS -- this is slightly more reliable than the ending code method
+
+e.multiple_endings = true;
+
+e.header = "<h1>error</h1>";
+e.pages = ["<p>This is an error handler</p>"];
+e.page = 0;
+
+endingPicker = (out, totv, aa, quickstats) => {
+    orderID = [aa[0].candidate, aa[1].candidate, aa[2].candidate, aa[3].candidate];
+//out = "win", "loss", or "tie" for your candidate
+//totv = total votes in entire election
+//aa = all final overall results data
+//quickstat = relevant data on candidate performance (format: your candidate's electoral vote count, your candidate's popular vote share, your candidate's raw vote total)
+
+/*
+e.header = "<h2></h2>"
+e.pages = ["<p></p>",
+        "<p></p>"]
+*/
+e.pages = []
+e.header = "";
+e.executable = []
+      
+      // Endings from the base mod
+      
+      if (quickstats[2] == aa[0].popular_votes && aa[0].popular_votes/totv > 0.513) {    
+  
+      e.pages = ["<h3>Election Night</h3><p>The mood at the Maple Bluff farm was one of celebration. Even before the polls closed, most of your friends were already cocksure of victory. McCarthy, the former Democrat turned stalwart puppet? He stood no chance. Despite your worrying, their assumptions would be proven correct. Initial returns had you winning by a staggering margin, and some started reporting your victory before even a third of the votes were counted. As the night went on, your margins narrowed, little by little, but McCarthy’s feeble comeback attempt was simply not enough, and stalwarts returned to the drawing board, their hopes of ousting a La Follette utterly demolished. You’ve not just survived, but dominated. Without even lifting a finger, without even a barebones campaign, you’ve shown that Wisconsin still loves La Follette. Your coattails, surprisingly, proved to be long. Through your reluctant leadership, Ralph Immell was barely able to win in his bid, and across the state, progressives were able to place a foothold into the Republican Party across state offices, the legislature, and local governments. You would go on to face Howard McMurray in the general election. For all his vitriol and anger, he went down easily, getting routed nearly 70-30 on election day. With victory achieved, you return to Washington. There's always more work to do.</p>", "<h3>A Faction Redeemed</h3><p>For Wisconsin’s progressives, this next chapter would prove to be just another step in their long road of accomplishments. With Immell elected governor and a smattering of local progressives infecting the republican ranks across the board, Coleman’s leadership was put in serious jeopardy. Through the next few years, a vicious power struggle took place in Wisconsin’s Grand Old Party. The feverish and charged battle would be unlike anything the party had seen before and threatened to tear the party apart. However, by 1952, with a coalition of progressives, moderates, and crossover Democrats, Immell and the PRA would come out on top over Coleman. Sure, conservatives would still be in the party, making up a sizable minority and occasionally scoring victories against the party, but by and large, Wisconsin’s GOP became an anomaly in American politics: A moderate, if not liberal, organization inside America’s conservative party. Governors Nelson, Krueger, Knowles, La Follette, and Alfonsi, along with many other Senators, Representatives, and state officials would all leave a memorable legacy for these Progressive Republicans. However, they were an anomaly for a reason. Their downfall would be dealt at the hand of the Reagan Presidency and the conservative backlash of the ‘80s. With few progressives remembering the days of the La Follettes, they slowly migrated to the Democrats, and by the turn of the century, they became mostly irrelevant, beyond a few stragglers holding on in the present day. Still, they left a legacy to be proud of.</p>", "<h3>A Demagogue Downed</h3><p>The same cannot be said of your opponent. Although he had outperformed expectations, he had not come very close to actually defeating you. For the next few years, he would bide his time, attempting to use his ‘46 run to climb up the Republican ranks. However, Coleman would stymie these attempts at every corner. For Coleman, McCarthy was a known factor at this point, and a losing one at that. Quickly the tensions between the two would become untenable, culminating in McCarthy making a critical mistake when he decided to rematch incumbent senator Alexander Wiley in 1950. Perceiving Wiley as a lightweight, McCarthy would launch into Wiley’s broadside, with much of the same theatrics from four years ago, attacking Wiley from his right. But Wiley still held a great rapport with moderates and the Republican establishment, who backed him enthusiastically. The bruising fight would prove to simply damage both candidates, leading the way for the progressive Gerald Boileau to win. McCarthy’s reckless campaign would be the death knell of his political viability. McCarthy would sputter across the GOP, attempting and failing to primary just about every office that public life had to offer. Consumed by regret and depression over his failed career, Joe turned to the bottle, with his crippling alcoholism that would end up doing him in 1958, at just 49 years old.</p>", "<h3>A Legacy Fulfilled</h3><p>November 12, 1961. You lie in bed, sick. Another one of your unexplainable illnesses, no doubt, but it’s never been this severe. Surrounded by family, with your race run, your weary mind wanders to your past, your career, your battles, your father. It’s been quite a turbulent time for you since your re-election in 1946.<br/>In ‘47, with your party affiliation now Republican, you had the opportunity to wield some true power in Washington, your seniority allowing you to chair the immensely powerful Finance Committee. Finally in the majority, with leverage to burn, you got to work instituting the changes that you were never able to ram through on your own. You finally won your battle on the tax system and fought day in and day out to preserve as much of the New Deal as you could and expand upon it when possible. You would continue to fight the thankless battles as the head of the finance committee, and you would continue to give your carefully planned lectures to Congress, content to coast to the end of your political career. However, fate had other plans for you. With the turn of the decade came a rising hysteria about the threat of communism infiltrating America from the inside, and with your recent interest in the issue, you would take it upon yourself to grab this ‘Red Scare’ by the horns, becoming chairman of the PSI. Much like with your time on the Civil Liberties Committee, your hearings captured the nation’s attention, but you ensured that the ordeal would not become the soap opera the press desperately wanted it to be. Refusing to feed into the fears of the American citizenry or give into the demands of those on your right, you ensured the process would be given the fair treatment and due process you believed it deserved. In 1952, with your work incomplete on the committee and after many, many reassurances that you would not have to lead a movement back home, you reluctantly decided to run for a sixth and final term. The stalwarts would once again try in vain to shoot down your candidacy in the primary, but they had failed six years ago when you barely ran a campaign, and they would fail again, this time by a greater margin. Your next term would be much like your last, working on the PSI until you concluded your investigation in 1954, continuing to fight for the progressive causes you’ve stuck to all your life, and acting as the elder statesman of the senate, your popularity among your colleagues reaching historic heights. At last, in 1958, you would hang your hat, retiring after 33 grueling years of service to Wisconsin. You would enjoy the next few years in retirement, working out of an office in Washington D.C. as a consultant. And while retirement was not the reprieve that you believed so fiercely that it would be all your life, you became largely content with your new life.<br/>You return to reality. At your bedside, you’re surrounded by family. They’re talking now…about you. Wait, no. They’re talking about your father. ''If only he could’ve seen what you grew up to be'' one of them remarks. The thought terrifies you. The nagging self-doubt that has haunted you all your life began creeping up on you again. But then; a moment of clarity. All of it, it’s all been for him. For over three decades, you dedicated your life to his legacy, leading a life that you did not want to lead. For over three decades, you helped lead the progressive movement through the most turbulent period in its history, and through your popularity, preserved a movement in Wisconsin that would last far beyond just you. And while you would never admit it, after three decades in the Senate, you left a much greater legislative legacy than your ever combative and abrasive father. On top of all this, with your son, Bronson, soon to enter politics, your work has ensured that the La Follettes will live on for another generation. You breathe a sigh of relief as you finally realize that you have done enough.<br/><br/>You had made dad proud.</p>"];
+      e.executable.push([0, (() => {e.image = e.image = 'https://i.imgur.com/LiwaBNf.jpeg'})])
+      e.executable.push([1, (() => {e.image = e.image = 'https://i.imgur.com/Lkjk27x.jpeg'})])
+      e.executable.push([2, (() => {e.image = e.image = 'https://i.imgur.com/erAx4VS.png'})])
+      e.executable.push([3, (() => {e.image = e.image = 'https://i.imgur.com/YqA7sL0.jpeg'})])
+      return construct(0);
+      }
+
+
+      else if (quickstats[1] < 46.5) {    
+  
+      e.pages = ["<h3>Election Night</h3><p>The mood at the Maple Bluff farm was one of celebration. Even before the polls closed, most of your friends were already cocksure of victory. McCarthy, the former Democrat turned stalwart puppet? He stood no chance. However, what initially appeared as signs that McCarthy would avoid complete embarrassment quickly snowballed into a long, grueling night. There would be no celebrations anytime soon. With every new county reporting, your lead was cut down, little by little, you could feel the walls close in, and you were certain that defeat was imminent. After most of the returns had come in, the reality of the situation set in. Your once secure lead had been whittled down to a razor-thin lead, with all but Milwaukee’s ballots counted. Still, victory seemed assured, with Milwaukee’s historically liberal bent, plus, the county had come through for you countless times before. But when the radio read out the report, a nation was stunned. McCarthy had won Milwaukee, and with it, the race. Back home, the family farm was silent. Your allies were despondent, grasping the calamity that had just occurred, your brother and sisters called in to offer their condolences, and teary-eyed friends came to Phil’s wife, confessing that they had voted in the Democratic primary, expecting you to win easily. But you took it better than most, even trying to cheer up your longtime advisor Morris Rubin afterward. Reporters across the country, thoroughly embarrassed, were befuddled trying to explain how the upstart judge from Grand Chute had slain the last of the La Follettes. Worse yet, the Progressive-Republican experiment has proven a spectacular failure across the board. With your abdication of responsibility, Ralph Immell was narrowly defeated in his bid for governor, and on the county, assembly, senate, and local level, progressives were resoundingly repudiated, with only those guaranteed to win retaining their positions. There were no positives to take from this night. In the later months, as the general election approached, you, ever the romantic for the GOP, would indirectly endorse McCarthy, penning a few Progressive articles chastising the Wallace-Pepper faction of the Democrats, and by proxy McMurray. Joe would go on to wallop McMurray 2-1 in November. As for you, retirement awaited.</p>", "<h3>A Faction Repudiated</h3><p>For Wisconsin’s progressives, this next chapter of their history would prove to be their last, at least in the La Follette form. Without you, without Immell, and without the PRA as the organization quickly flamed out and died, the faction lacked any true leaders or direction. Over the next few years, a few more candidates would try their luck as Progressive Republicans, clinging desperately to the hope that they would be the ones to revive some sort of relevancy to the wayward faction, but none of them had the pull. With these wayward men becoming increasingly irrelevant, with their highest office holder being a handful of state senators, it was time to face reality. Some accepted it slower than others, retreating to the Democrats where a new generation had at last forged a truly liberal party from the urban enclaves of Madison and Milwaukee, while others decided to fit into the crowd, moderating until they could pass the GOP’s litmus test of the primary. Either way, the La Follette republicans, the great progenitors of the Wisconsin Idea, the model of success upon which many a progressive movement looked towards, was dead, and with its death, they left a legacy that would over time wither away into little more than a historical afterthought.</p>", "<h3>Tail-Gunner Joe</h3><p>The same cannot be said of your opponent. Initially it appeared as though McCarthy’s grand crusade would be all for naught, as through his first four years he failed to make any waves in the Senate, and appeared to be destined for the dustbin of history; just another Republican. But in 1950, one day, one speech, changed American history. With a charge of 205 communists in the federal government, McCarthy was catapulted into the maelstrom of the Red Scare. Emboldened by his newfound popularity and captivating warnings, McCarthy would up the ante, further and further delving into demagoguery as he ripped the nation apart for his own gain. He became his own -ism, the pride of Wisconsin to half the nation, the disgrace of it to the other half. In the end, his unholy crusade would be his undoing. Much like Montgomery at the Rhine, McCarthy went a bridge too far, and his assault against the Army would bring about his political demise. Three years later, the bottle would bring about his physical demise. But America would never forget the name of the man who spurned a legacy of mass hysteria, public distrust, and McCarthyism.</p>", "<h3>A Legacy Tarnished</h3><p>Back to you. After your defeat, you retreated out of the public eye at last, setting up an office in Washington and with Phil’s help, you got a job as a consultant at Sears, as well as side jobs assisting in several other business ventures. Initially, you found this new life enjoyable, pouring yourself into these new endeavors with the same diligent work ethic you held in the Senate. Additionally, you would find some return to politics by penning articles on issues you felt important, including one Collier’s piece which caused a minor sensation after you had claimed to have knowledge of communists in the federal government. For the next few years, you would toy with the possibility of a political comeback, but as open seats and federal appointments passed you by, you continually rejected all of the plentiful opportunities presented, wary of the leadership responsibilities you believed were bound to fall unto you if you were to run. But as the years passed you by, dissatisfaction slowly grew. Despite your distaste for the public spotlight, politics was the only world you’d ever known, and you found the business world to be a supremely unrewarding one, slaving away for the corporate interests you so often denounced. As always, health remained an issue, your laundry list of illnesses continued piling up, keeping you confined to your bed a third of every week. This stinging melancholy slowly transformed itself into a deep depression, characterized by anxiety attacks and paranoia, with you becoming especially worried that your successor would call you to the Senate to testify for your admission of allowing communists into the Civil Liberties Committee. You could feel your memory deteriorate, it was once exceptional, what was happening? Had you failed father? Would you ever be healthy again?<br/>One morning, while these demons circled around your head, Bronson walked in. Snapping out of your cold sweat, you hugged your son and told him that you loved him.</p>", "<h3>Tuesday, February 24, 1953</h3><p>9:30 AM: Rachel La Follette drops her husband, Robert, off at work at the National Press Building in Washington D.C. after breakfast.</p><p>11:00 AM: Robert exits his office, telling his secretary Rosemary Voigt, ''I’m going out. I’ll call you later.''</p><p>11:30 AM: Robert arrives at his home on Manning Place, Washington D.C. He greets the maid and heads up to his room.</p><p>12:00 PM: Rachel receives a call from Robert, where he asks, ''Would you come home and meet me there'' without further explanation.</p><p>12:30 PM: Rachel arrives at the La Follette home. Failing to find her husband on the ground floor, she heads upstairs, where she finds Robert, dead from a self-inflicted gunshot wound.</p>"];
+      e.executable.push([0, (() => {e.image = e.image = 'https://i.imgur.com/fiRTS66.png'})])
+      e.executable.push([1, (() => {e.image = e.image = 'https://i.imgur.com/SPZ54lz.png'})])
+      e.executable.push([2, (() => {e.image = e.image = 'https://i.imgur.com/1i8pzfE.png'})])
+      e.executable.push([3, (() => {e.image = e.image = 'https://i.imgur.com/8ITYjNQ.png'})])
+      e.executable.push([4, (() => {e.image = e.image = 'https://i.imgur.com/Lpa0iXI.jpeg'})])
+      return construct(0);
+      }
+
+      else if (aa[0].popular_votes/totv < 0.513 && aa[0].popular_votes/totv > 0.465) {    
+  
+      e.pages = ["<h3>Election Night</h3><p>The mood at the Maple Bluff farm was one of celebration. Even before the polls closed, most of your friends were already cocksure of victory. McCarthy, the former Democrat turned stalwart puppet? He stood no chance. However, what initially appeared as signs that McCarthy would avoid complete embarrassment quickly snowballed into a long, grueling night. There would be no celebrations anytime soon. With every new county reporting, your lead was cut down, little by little, you could feel the walls close in, and you were certain that defeat was imminent. But it never materialized. McCarthy’s comeback ran out of fuel, collapsing just before it reached the summit, the killing blow struck at midnight as Milwaukee County slammed the door on the last of stalwart hopes. You’ve survived, but this is no victory. Reporters scratch their heads trying to explain how this upstart judge came so close to dethroning a La Follette. Your coattails also proved to be very short. With your uninvolved leadership, Ralph Immell’s bid was defeated by a small margin, and across the state, progressives were met with disappointments across the board, only able to take solace in the election of several young assemblymen like Clifford Krueger and Gaylord Nelson. You would go on to face Howard McMurray in the general election. For all his vitriol and anger, he went down fairly easily, losing nearly 2-1 on election day. With victory achieved, you return to Washington. There's always more work to do.</p>", "<h3>A Faction Survived</h3><p>For Wisconsin’s progressives, this next chapter of their long history will prove to be their last, at least in the La Follette form. Ever hostile to the stalwarts and alienated from the vengeful Democrats, the little band of willful progressives that survived the migration found themselves with few allies and little hope. Yet, in what seemed like almost a miracle, they were able to reinvent themselves. Styling themselves as maverick outsiders, willing to work with both parties, Progressive-Republicans found a winning identity across the 1950s and into the 1960s. They won state offices, took a sizable minority of the GOP’s state congressional minority, and even won multiple governorships, most prolific among them 2-term Governor and longtime Senator Gaylord Nelson. However, these men could only outrun father time for so long. A new generation, led by liberals in Madison and Milwaukee, had molded the Wisconsin Democratic Party into a competent organization, one that could win. Conservatives, who had never really lost leadership positions within the party, would be able to render the Progressive-Republicans irrelevant by the 70s, with the last stragglers out by the 90s. Still, they left a legacy to be proud of.</p>", "<h3>A Demagogue Averted</h3><p>The same cannot be said of your opponent. After his stunning campaign that nearly dethroned you, McCarthy became a darling among Wisconsin’s Conservatives, an up-and-coming star of the GOP. However, that star never materialized. Coleman, eager to put Joe somewhere he would not cause any headaches, recruited McCarthy to fill the role of Attorney General after Governor Oscar Rennebohm appointed his own to the Wisconsin Supreme Court. After a nail-biter re-election campaign in 1948, McCarthy would serve two more uneventful terms. But upon La Follette’s surprise retirement in 1952, McCarthy would join the crowded field of opportunistic candidates looking to succeed Young Bob in the Senate. However, his years as Attorney General put him in a bind. He proved too established for arch conservatives, but too much of a wild card for Coleman’s liking. Failing to find a niche, McCarthy would place 3rd among 6 candidates. After his defeat, out of office and political capital, McCarthy would return to his old stomping grounds, fading away as the 10th District Judge. He would still hold influence in his home region, being called the ''Kingmaker of the Fox Valley'' by local press. In 1962, despite ailing health and waning political influence, he would be appointed to the state Supreme Court. Consumed by regret at what could have been, McCarthy’s alcoholism would ramp up in intensity, ultimately doing him in in 1964, at just 55.</p>", "<h3>A Legacy Failed</h3><p>August 5, 1956. You lie in bed, sick. Another one of your unexplainable illnesses, no doubt, but it’s never been this severe. Surrounded by family, with your race run, your weary mind wanders to your past, your career, your battles, your father. It’s been quite a turbulent time for you since your final re-election in 1946.</p><p>In ‘47, with your party affiliation now Republican, you had the opportunity to wield some true power in Washington, your seniority allowing you to chair the powerful Labor and Public Welfare committee. Confident this term would be your last, you became fully free to vote your conscience, becoming a sort of elder statesman. The moniker “Young Bob” no longer fit. You were aged, your hair gray and thinner, your face and body stockier, and your reputation as a darling of the Senate cemented. For 6 more years, you would continue the hard work of fighting for the common man against the powers of great wealth, committing yourself fully to the thankless battles waged in committees, and to your carefully planned lectures to Congress. Near the end of your term, with your power at its greatest, your friends and leaders back home begged and pleaded for you to reconsider, but you just couldn’t stomach another campaign. Certain that you had lost your popular mandate, you would announce your retirement, and in a squeaker, you’d be succeeded by your friend and fellow progressive Charles Madsen.<p>You had finally gotten your way. You’d long grown wary of the trials of public life, your retirement came as a relief to you and your family. You would set up an office in Washington, receiving work from Phil’s friend Robert Wood at Sears, among other big corporations, as well as a few public service jobs. Though you no longer would be concerned with financial security, the work was not fulfilling. You frequently toyed with a political comeback, potentially running in Wisconsin’s 2nd House District, but there was always an excuse from you; poor health, reluctance to campaign, or the expectation of leadership haunted you and ultimately turned you away from the idea.</p><p>You return to reality. At your bedside, you’re surrounded by family. They’re talking now…about you. Wait, no. They’re talking about your father. “If only he could’ve seen what you grew up to be,” one of them remarks. The thought terrifies you. Despite all you’ve done, despite your 28 years in the Senate, you’re certain, positively certain, that he would be disappointed in you. You were the golden child, the prodigal son. Father had always dreamt of you vastly eclipsing him, but you had failed to do so, always too scared or anxious to put yourself out there, fight the establishment, or seek a higher office like your father had always desired. You’d softened up, just like your college days, you took the easy road.<br/><br/>You had failed him.</p>"];
+      e.executable.push([0, (() => {e.image = e.image = 'https://i.imgur.com/LhK3Uhw.png'})])
+      e.executable.push([1, (() => {e.image = e.image = 'https://i.imgur.com/tQM2iMA.jpeg'})])
+      e.executable.push([2, (() => {e.image = e.image = 'https://i.imgur.com/Aj82R28.png'})])
+      e.executable.push([3, (() => {e.image = e.image = 'https://i.imgur.com/DfUVQ8R.jpeg'})])
+      return construct(0);
+      }
+      return construct(0);
+      }
 
