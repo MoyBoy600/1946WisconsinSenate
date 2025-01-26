@@ -9085,7 +9085,7 @@ campaignTrail_temp.answer_feedback_json = [
         "fields": {
             "answer": 16615,
             "candidate": 152,
-            "answer_feedback": "George Aiken is a dyed-in-the-wool progressive Republican and gladly endorses you. However, his endorsement is barely covered in the press, who see your victory as a foregone conclusion."
+            "answer_feedback": "George Aiken is a dyed-in-the-wool liberal Republican and gladly endorses you. However, his endorsement is barely covered in the press, who see your victory as a foregone conclusion."
         }
     },
     {
