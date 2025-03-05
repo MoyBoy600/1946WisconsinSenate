@@ -104,7 +104,7 @@ tooltipList = [
   {searchString: "McMurray", explanationText: "<img src=https://i.imgur.com/ZrkW6hz.png><br> Former Representative and intellectual from the Madison area. A fierce internationalist and New Dealer, McMurray is a key leader in the Democratic Party."},
   {searchString: "PRA", explanationText: "Organization set up after the Progressive Party died to find and elect local progressives throughout the state. Chaired by former Goodland staffer Ed Doan."},
   {searchString: "Progressive Republican Association", explanationText: "Organization set up after the Progressive Party died to find and elect local progressives throughout the state. Chaired by former Goodland staffer Ed Doan."},
-  {searchString: "Jim Jordan", explanationText: "<img src=https://i.imgur.com/ciQpsaJ.png> Fellow Bootlicker"},
+  {searchString: "Aiken", explanationText: "<img src=https://upload.wikimedia.org/wikipedia/commons/6/64/GeorgeAiken-VTSEN-_%28cropped%29.jpg> Vermont Senator and an ally of yours, Aiken is the titular Liberal Republican. However, he's no tour de force within the party."},
   {searchString: "Larry Householder", explanationText: "<img src=https://i.imgur.com/Fqq2la4.png> Got caught"},
   {searchString: "Tracy Richardson", explanationText: "<img src=https://i.imgur.com/qpBMBDW.png> What's the matter smoothskin, never seen a ghoul before?"},
   {searchString: "Tucker Carlson", explanationText: "<img src=https://i.imgur.com/Ru08Hyu.png> Propaganda Master"},
