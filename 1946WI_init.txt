@@ -99,11 +99,11 @@ addDynamicCSS();
 
 tooltipList = [
   {searchString: "Walter Goodland", explanationText: "<img src=https://i.imgur.com/ohQ0F5G.png><br> The 'Tough Old Codger' has been Governor since 1943, after the passing of Governor-elect Loomis. At 84, the cigar puffing maverick is running for re-election against the wishes of Republican leadership. Still, his unabashedly independent reputation has made him a juggernaut in Wisconsin politics only comparable to the La Follettes."},
-  {searchString: "Peter Thiel", explanationText: "<img src=https://i.imgur.com/EQaGXil.png> Your old owner"},
-  {searchString: "Ohio GOP", explanationText: "<img src=https://i.imgur.com/9f1vSns.png> Modern-day pirates"},
-  {searchString: "Mike DeWine", explanationText: "<img src=https://i.imgur.com/X74PYoY.png> Reichsführer"},
-  {searchString: "Jennifer Gross", explanationText: "<img src=https://i.imgur.com/f1fsUv9.png> Spoon Woman"},
-  {searchString: "George Lang", explanationText: "<img src=https://i.imgur.com/4EVdylp.png> Civil War man"},
+  {searchString: "Ralph Immell", explanationText: "<img src=https://i.imgur.com/De5oOw8.png><br> Longtime Adjutant General and La Follette ally, managed your brother's doomed National Progressive Party. A member of the long-dead Blaine faction of progressives, he's a popular figure in the state."},
+  {searchString: "Phil", explanationText: "<img src=https://i.imgur.com/uKS7j1y.png><br> Your brother and former Governor (1931-1933, 1935-1939), Philip is far gone from his days of national prominence during the Depression. After being trounced in '38, he became a gadfly for the isolationist movement. Since the war and his service, however, he's lost poiltically, currently booming MacArthur for the presidency in 1948. He'll work with you, but your relationship with him is not what it once was."},
+  {searchString: "McMurray", explanationText: "<img src=https://i.imgur.com/ZrkW6hz.png><br> Former Representative and intellectual from the Madison area. A fierce internationalist and New Dealer, McMurray is a key leader in the Democratic Party."},
+  {searchString: "PRA", explanationText: "Organization set up after the Progressive Party died to find and elect local progressives throughout the state. Chaired by former Goodland staffer Ed Doan."},
+  {searchString: "Progressive Republican Association", explanationText: "Organization set up after the Progressive Party died to find and elect local progressives throughout the state. Chaired by former Goodland staffer Ed Doan."},
   {searchString: "Jim Jordan", explanationText: "<img src=https://i.imgur.com/ciQpsaJ.png> Fellow Bootlicker"},
   {searchString: "Larry Householder", explanationText: "<img src=https://i.imgur.com/Fqq2la4.png> Got caught"},
   {searchString: "Tracy Richardson", explanationText: "<img src=https://i.imgur.com/qpBMBDW.png> What's the matter smoothskin, never seen a ghoul before?"},
