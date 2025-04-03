@@ -500,7 +500,7 @@ campaignTrail_temp.answers_json = [
         "pk": 16687,
         "fields": {
             "question": 16680,
-            "description": "I hate to do it, but we have to punch down, end his campaign before it gains any traction. I hear he's getting flak due to his refusal to resign his judgeship and his previous alignment with the Democrats. Attack him on that."
+            "description": "I hate to kick a man while he's down, but we must end his campaign before it gains any traction. I hear he's getting flak due to his refusal to resign his judgeship and his previous alignment with the Democrats. Attack him on that."
         }
     },
     {
