@@ -379,7 +379,7 @@ campaignTrail_temp.answers_json = [
         "pk": 17028,
         "fields": {
             "question": 17010,
-            "description": "Let's do something bold. We'll swap spots, he can start his feeble campaign in Wisconsin, while I'll be at Washington, touring the Senate, and of course, La Follette's Virginia mansion."
+            "description": "Let's do something bold. We'll swap spots, he can start his feeble campaign in Wisconsin, while I'll be at Washington, touring the Senate, and of course, La Follette's Virginia manor."
         }
     },
     {
