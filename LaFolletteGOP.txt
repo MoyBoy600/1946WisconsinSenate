@@ -191,7 +191,7 @@ campaignTrail_temp.questions_json = [
         "pk": 16845,
         "fields": {
             "priority": 4,
-            "description": "On the other side of the primaries, Former Representative and UW Professor Howard McMurray is running unopposed, and as such has started his campaign early, launching attacks against your record. While initially benign, his assault against you has turned scathing, as he castigates you for anything and everything you did in the past, domestic and foreign, claiming you spent \"Five years before the war voting for Hitler\", and bringing up your involvement with your brother's ill-fated National Progressives of America. How will you defend yourself?",
+            "description": "On the other side of the primaries, Former Representative and UW Professor Howard McMurray is running unopposed, and as such has started his campaign early, launching attacks against your record. While initially benign, his assault against you has turned scathing, as he castigates you for anything and everything you've done in the past, domestic and foreign, claiming you spent \"Five years before the war voting for Hitler\", and bringing up your involvement with your brother's ill-fated National Progressives of America, all while simultaneously claiming you've "sold out" of your liberal ideals. How will you defend yourself?",
             "likelihood": 1
         }
     },
@@ -532,7 +532,7 @@ campaignTrail_temp.answers_json = [
         "pk": 16701,
         "fields": {
             "question": 16690,
-            "description": "The best option we have right now is to say nothing. It's clear that the Democrats want McCarthy, a former Democrat, and that fact alone should say enough."
+            "description": "You know why the Democrats want McCarthy? Because he will lose in the general election, badly. If you want the Republican party to remain in power this November, then I am your best option."
         }
     },
     {
@@ -9265,7 +9265,7 @@ campaignTrail_temp.answer_feedback_json = [
         "fields": {
             "answer": 16701,
             "candidate": 152,
-            "answer_feedback": "To your progressive friends and associates, the hypocrisy is clear. But your faith that the general public would see through this hit job is misplaced."
+            "answer_feedback": "The irony of the Democratic Party campaigning actively for McCarthy, a former Democrat himself, is palpable. You've made a good case for yourself here, even as some think a GOP landslide is inevitable, no matter the candidate."
         }
     },
     {
@@ -9382,7 +9382,7 @@ campaignTrail_temp.answer_feedback_json = [
         "fields": {
             "answer": 16777,
             "candidate": 152,
-            "answer_feedback": "Along the lakeshore, The CIO is verys stubborn, especially without your presence. however, your campaign finds the outstate CIO much more cooperative, convincing the La Crosse CIO-PAC to work with your campaign, and getting an Eau Claire labor leader to run for sheriff as a Republican."
+            "answer_feedback": "Along the lakeshore, The CIO is openly hostile, especially without your presence. however, your campaign finds the outstate CIO much more cooperative, with the La Crosse and Dane County CIOs as an active part of your campaign, and getting an Eau Claire labor leader to run for sheriff as a Republican."
         }
     },
     {
