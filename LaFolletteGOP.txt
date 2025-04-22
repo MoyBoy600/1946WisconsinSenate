@@ -191,7 +191,7 @@ campaignTrail_temp.questions_json = [
         "pk": 16845,
         "fields": {
             "priority": 4,
-            "description": "On the other side of the primaries, Former Representative and UW Professor Howard McMurray is running unopposed, and as such has started his campaign early, launching attacks against your record. While initially benign, his assault against you has turned scathing, as he castigates you for anything and everything you've done in the past, domestic and foreign, claiming you spent \"Five years before the war voting for Hitler\", and bringing up your involvement with your brother's ill-fated National Progressives of America, all while simultaneously claiming you've "sold out" of your liberal ideals. How will you defend yourself?",
+            "description": "On the other side of the primaries, Former Representative and UW Professor Howard McMurray is running unopposed, and as such has started his campaign early, launching attacks against your record. While initially benign, his assault against you has turned scathing, as he castigates you for anything and everything you've done in the past, domestic and foreign, claiming you spent \"Five years before the war voting for Hitler\", and bringing up your involvement with your brother's ill-fated National Progressives of America, all while simultaneously claiming you've 'sold out' of your liberal ideals. How will you defend yourself?",
             "likelihood": 1
         }
     },
