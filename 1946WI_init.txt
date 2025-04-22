@@ -122,6 +122,7 @@ tooltipList = [
   {searchString: "Gerald L.K. Smith", explanationText: "<img src=https://i.imgur.com/Qycgura.jpeg><br> America's premier anti-semite and fascist gadfly, formerly Long's right-hand man turned failed demagogue. A truly sad man."},
   {searchString: "Fred Zimmerman", explanationText: "<img src=https://i.imgur.com/4Btdqz2.jpeg><br> Once upon a time, he was the chief enemy of progressives, prostituting the La Follette name for his own gain as a failed Governor. Nowadays, he's on much better terms with progressives, as the elder statesman of Wisconsin politics, having been Secretary of State since 1939"},
   {searchString: "Sam Rayburn", explanationText: "<img src=https://i.imgur.com/Y6VYkkY.jpeg><br> Speaker of the House and doctrinaire Democrat. Has bigger problems than you to deal with."},
+  {searchString: "our benefactors", explanationText: "<img src=https://static.wikia.nocookie.net/half-life/images/e/e2/Wallace_Breen_breencast_bust.jpg/revision/latest/scale-to-width-down/250?cb=20091026094538&path-prefix=en>"},
   {searchString: "Hull", explanationText: "<img src=https://i.imgur.com/FpjXrVz.jpeg><br> U.S. Representative for Wisconsin's 9th District and the only surviving Progressive in federal office."},
   {searchString: "Alexander Wiley", explanationText: "<img src=https://i.imgur.com/v8eumtG.jpeg><br> Incumbent Junior Senator from Wisconsin. He prefers to work in the background, being a bit of a no-namer."},
   {searchString: "Werner", explanationText: "The man you defamed and dishonored to become circuit judge."},
